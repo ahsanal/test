@@ -1,0 +1,12 @@
+version: '3'
+services:
+   web:
+     image: nginx
+     ports:
+       - "1234:80"
+     volumes:
+       - .:/var/www/html
+       - devopsg:/usr/share/nginx/html
+
+volumes:
+   devopsg:

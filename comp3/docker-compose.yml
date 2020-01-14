@@ -1,0 +1,15 @@
+version: '3'
+services:
+   web:
+     build:
+        context: .
+     ports:
+       - "80"
+     volumes:
+       - .:/var/www/html
+   app:
+     build:
+        context: ./tomcat
+        dockerfile: myfile
+     ports:
+       - "8080"

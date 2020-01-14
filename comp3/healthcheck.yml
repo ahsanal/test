@@ -1,0 +1,43 @@
+#version: '3'
+#services:
+#   web:
+#     image: nginx
+#     ports:
+#       - "80"
+#     volumes:
+#       - .:/var/www/html
+#     extra_hosts:
+#        - "ibmz1123:9.126.40.32"
+#     healthcheck:
+#       test: ["CMD", "curl", "-f", "http://localhost"]  #Here bydefault curl will not be installed so it will fail or show unhealthy
+#       interval: 1m30s
+#       timeout: 10s
+#       retries: 3
+#       #start_period: 40s  #start_period is only supported in v3.4 and higher of the compose
+
+###########################################
+#Let's run same above command but this time using a dockerfile where curl will be installed 
+version: '3.7'
+services:
+   web:
+   # image: nginx
+     build: 
+       context: ./healthcheck
+       dockerfile: Dockerfile
+     ports:
+       - "80"
+     volumes:
+       - .:/var/www/html
+     extra_hosts:
+        - "ibmz1123:9.126.40.32"
+     healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost"]  #Here bydefault curl will not be installed so it will fail or show unhealthy
+       interval: 1m30s
+       timeout: 10s
+       retries: 3
+       #start_period: 40s  #start_period is only supported in v3.4 and higher of the compose
+     labels:
+       Name: "Amit Agrawal"
+       Country: India
+       Company: DevOps_G
+       City: ""

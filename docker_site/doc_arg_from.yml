@@ -1,0 +1,4 @@
+ARG VERSION=latest
+FROM busybox:$VERSION
+#ARG VERSION  (If we remove the ARG then the value of ARG will not be available after first FROM)
+RUN echo $VERSION > image_version

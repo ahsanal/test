@@ -1,0 +1,10 @@
+version: '3'
+services:
+   web:
+     image: nginx
+     ports:
+       - "80"
+     volumes:
+       - .:/var/www/html
+     extra_hosts:
+        - "ibmz1123:9.126.40.32"
